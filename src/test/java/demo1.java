@@ -104,4 +104,12 @@ public class demo1 {
             System.out.println(user);
         }
     }
+
+    @Test
+    public void test8(){
+        List<User> departs = userService.getDeparts("l", 0, 5);
+        for (User user: departs) {
+            System.out.println(user);
+        }
+    }
 }
