@@ -6,13 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/index.css" />
+    <style>
+        .echars-a{
+            position: absolute;
+            top: 26%;
+            left: 73%;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
 <header>
     <h1>大数据可视化展板</h1>
-    <a href="/login.jsp">后台管理登录</a>
-    <div class="showTime">当前时间：2020年3月17-0时54分14秒</div>
+    <a class="echars-a" href="/login.jsp">后台管理登录</a>
+    <div class="showTime">
+        当前时间：2020年3月17-0时54分14秒
+    </div>
     <script>
         var t = null;
         t = setTimeout(time, 1000); //開始运行

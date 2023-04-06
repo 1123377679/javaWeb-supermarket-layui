@@ -5,6 +5,7 @@ import cn.lanqiao.service.impl.DataServiceImpl;
 import cn.lanqiao.service.impl.UserServiceImpl;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,18 +19,9 @@ public class Test2 {
     }
     @Test
     public void demo1(){
-        int totalCount = dataService.getTotalCount();
+        User user = new User();
+        ArrayList<Integer> totalCount = dataService.getTotalCount(user);
         System.out.println(totalCount);
-    }
-
-    @Test
-    public void demo3(){
-        List<User> users = dataService.totalCount();
-        System.out.println(users);
-    }
-
-    @Test
-    public void demo4(){
 
     }
 }

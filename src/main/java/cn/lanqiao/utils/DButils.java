@@ -1,10 +1,11 @@
 package cn.lanqiao.utils;
 
+import org.apache.poi.ss.formula.functions.T;
+
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 public class DButils {
@@ -109,36 +110,7 @@ public class DButils {
         local.set(null);
     }
 
-    /**
-     * 根据条件查询总数
-     * @param sql
-     * @param param
-     * @return
-     */
-    public static int commonQueryCount(String sql, Object... param) {
-        Connection connection = null;
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        int count = 0;
-        try {
-            connection = getConnection();
-            //设置sql语句
-            statement = connection.prepareStatement(sql);
-            //设置参数
-            for (int i = 0; i < param.length; i++) {
-                statement.setObject(i + 1, param[i]);
-            }
-            resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                count = resultSet.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DButils.close(connection, statement, resultSet);
-        }
-        return count;
-    }
+
 
 
     //insert into student(name,sex,age,....) values(?,?,?,?,?)
@@ -176,7 +148,59 @@ public class DButils {
         }
         return -1;
     }
-
+    /**
+     * 根据条件查询总数
+     * @param sql
+     * @param param
+     * @return
+     */
+    public static int commonQueryCount(String sql, Object... param) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        int count = 0;
+        try {
+            connection = getConnection();
+            //设置sql语句
+            statement = connection.prepareStatement(sql);
+            //设置参数
+            for (int i = 0; i < param.length; i++) {
+                statement.setObject(i + 1, param[i]);
+            }
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                count = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DButils.close(connection, statement, resultSet);
+        }
+        return count;
+    }
+    public static ArrayList<Integer> commonQueryCountAll(String sql, Object... param) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        int count = 0;
+        //int month = 0;
+        ArrayList<Integer> list = new ArrayList<>();
+        try {
+            connection = getConnection();
+            Statement stmt = connection.createStatement();
+            resultSet = stmt.executeQuery(sql);
+            while (resultSet.next()) {
+                //count = resultSet.getInt(1);
+                count = resultSet.getInt("count");
+                list.add(count);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DButils.close(connection, statement, resultSet);
+        }
+        return list;
+    }
     //更新方法(添加、删除、修改)
     public static int commonUpdate(String sql, Object... param) {
         Connection connection = null;
@@ -216,7 +240,6 @@ public class DButils {
             ResultSetMetaData metaData = resultSet.getMetaData();
             //获取字段个数
             int columnCount = metaData.getColumnCount();
-
             ArrayList<T> list = new ArrayList<>();
 
             while (resultSet.next()) {//判断是否有迭代的数据行 （5-周华健-40-13000-Java）
