@@ -153,20 +153,20 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="javascript:;">
-                    <i class="iconfont left-nav-li" lay-tips="供应商管理">&#xe6b8;</i>
-                    <cite>数据导入</cite>
-                    <i class="iconfont nav_right">&#xe697;</i></a>
-                <ul class="sub-menu">
-                    <li>
-                        <%--前端发送请求,需要后台拿到action=list数据--%>
-                        <a onclick="xadmin.add_tab('用户数据导入','#')">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>用户数据导入</cite></a>
-                    </li>
-                </ul>
-            </li>
+<%--            <li>--%>
+<%--                <a href="javascript:;">--%>
+<%--                    <i class="iconfont left-nav-li" lay-tips="供应商管理">&#xe6b8;</i>--%>
+<%--                    <cite>数据导入</cite>--%>
+<%--                    <i class="iconfont nav_right">&#xe697;</i></a>--%>
+<%--                <ul class="sub-menu">--%>
+<%--                    <li>--%>
+<%--                        &lt;%&ndash;前端发送请求,需要后台拿到action=list数据&ndash;%&gt;--%>
+<%--                        <a onclick="xadmin.add_tab('用户数据导入','#')">--%>
+<%--                            <i class="iconfont">&#xe6a7;</i>--%>
+<%--                            <cite>用户数据导入</cite></a>--%>
+<%--                    </li>--%>
+<%--                </ul>--%>
+<%--            </li>--%>
 <%--            <li>--%>
 <%--                <a href="javascript:;">--%>
 <%--                    <i class="iconfont left-nav-li" lay-tips="分类管理">&#xe723;</i>--%>

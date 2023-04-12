@@ -148,6 +148,9 @@ public class DButils {
         }
         return -1;
     }
+
+
+
     /**
      * 根据条件查询总数
      * @param sql
@@ -178,6 +181,9 @@ public class DButils {
         }
         return count;
     }
+
+
+
     public static ArrayList<Integer> commonQueryCountAll(String sql, Object... param) {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -201,6 +207,8 @@ public class DButils {
         }
         return list;
     }
+
+
     //更新方法(添加、删除、修改)
     public static int commonUpdate(String sql, Object... param) {
         Connection connection = null;
