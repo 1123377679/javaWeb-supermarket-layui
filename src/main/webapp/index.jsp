@@ -153,6 +153,21 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont left-nav-li" lay-tips="供应商管理">&#xe6b8;</i>
+                    <cite>权限管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i></a>
+                <ul class="sub-menu">
+                    <li>
+                        <%--前端发送请求,需要后台拿到action=list数据--%>
+                        <a onclick="xadmin.add_tab('权限分类','/AuthorityServlet?action=list')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>权限分类</cite>
+                        </a>
+                    </li>
+                </ul>
+            </li>
 <%--            <li>--%>
 <%--                <a href="javascript:;">--%>
 <%--                    <i class="iconfont left-nav-li" lay-tips="供应商管理">&#xe6b8;</i>--%>
